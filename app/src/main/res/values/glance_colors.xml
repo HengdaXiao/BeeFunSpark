@@ -16,12 +16,12 @@
   -->
 
 <resources>
-    <color name="colorPrimary">@color/m3_sys_color_light_primary</color>
+    <color name="colorPrimary">#72F27F</color>
     <color name="colorOnPrimary">@color/m3_sys_color_light_on_primary</color>
     <color name="colorPrimaryInverse">@color/m3_sys_color_light_inverse_primary</color>
     <color name="colorPrimaryContainer">@color/m3_sys_color_light_primary_container</color>
     <color name="colorOnPrimaryContainer">@color/m3_sys_color_light_on_primary_container</color>
-    <color name="colorSecondary">@color/m3_sys_color_light_secondary</color>
+    <color name="colorSecondary">#FB8E5F</color>
     <color name="colorOnSecondary">@color/m3_sys_color_light_on_secondary</color>
     <color name="colorSecondaryContainer">@color/m3_sys_color_light_secondary_container</color>
     <color name="colorOnSecondaryContainer">@color/m3_sys_color_light_on_secondary_container</color>
