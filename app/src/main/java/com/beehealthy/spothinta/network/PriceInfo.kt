@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:7.3.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.20"
+package com.beehealthy.spothinta.network
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
-}
+import Price
+import kotlinx.serialization.Serializable
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+@Serializable
+sealed interface PriceInfo {
+    @Serializable
+    object Loading : PriceInfo
+
+    @Serializable
+    data class Available(
+        val hourlyForecast: List<Price>,
+    ) : PriceInfo
+
+    @Serializable
+    data class Unavailable(val message: String) : PriceInfo
 }
