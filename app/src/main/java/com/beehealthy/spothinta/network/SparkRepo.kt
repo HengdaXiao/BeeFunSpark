@@ -7,6 +7,7 @@ object SparkRepo {
     val apiHelper = ApiHelperImpl(RetrofitBuilder.apiService)
 
     suspend fun getPrices():PriceInfo {
-        return PriceInfo.Available(apiHelper.getPrices())
+        val prices = apiHelper.getPrices().sortedBy { it.rank }
+        return PriceInfo.Available(prices)
     }
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.beehealthy.spothinta
+package com.beehealthy.spothinta.utils
 
 
 import android.content.res.Resources

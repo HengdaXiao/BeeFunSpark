@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-package com.beehealthy.spothinta
+package com.beehealthy.spothinta.utils
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.glance.unit.ColorProvider
+import com.beehealthy.spothinta.R
 
 /**
  * Temporary implementation of theme object for Glance-appwidgets.
