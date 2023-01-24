@@ -17,7 +17,6 @@
 package com.beehealthy.spothinta.network
 
 import android.content.Context
-import android.util.Log
 import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.DataStore
 import androidx.datastore.core.Serializer
@@ -54,10 +53,11 @@ object PriceInfoStateDefinition : GlanceStateDefinition<PriceInfo> {
     }
 
     /**
-     * Custom serializer for WeatherInfo using Json.
+     * Custom serializer for PriceInfo using Json.
      */
     object PriceInfoSerializer : Serializer<PriceInfo> {
-        override val defaultValue = PriceInfo.Unavailable("no place found")
+
+        override val defaultValue = PriceInfo.Unavailable("No Price Info Available")
 
         override suspend fun readFrom(input: InputStream): PriceInfo = try {
             Json.decodeFromString(

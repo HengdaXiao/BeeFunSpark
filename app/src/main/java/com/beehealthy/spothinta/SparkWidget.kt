@@ -44,7 +44,7 @@ class SparkWidget : GlanceAppWidget() {
                             )
                         )
                         Text(
-                            text = "${priceInfo.hourlyForecast.first().priceWithTax} ${
+                            text = "${priceInfo.hourlyPrices.first().priceWithTax} ${
                                 LocalContext.current.getString(
                                     R.string.widget_unit
                                 )
@@ -64,7 +64,7 @@ class SparkWidget : GlanceAppWidget() {
                             )
                         )
                         Text(
-                            text = "${priceInfo.hourlyForecast.last().priceWithTax} ${
+                            text = "${priceInfo.hourlyPrices.last().priceWithTax} ${
                                 LocalContext.current.getString(
                                     R.string.widget_unit
                                 )
