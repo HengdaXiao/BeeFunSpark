@@ -16,7 +16,6 @@
 
 package com.beehealthy.spothinta.network
 
-import Price
 import android.content.Context
 import androidx.glance.GlanceId
 import androidx.glance.appwidget.GlanceAppWidgetManager
@@ -24,17 +23,17 @@ import androidx.glance.appwidget.state.updateAppWidgetState
 import androidx.glance.appwidget.updateAll
 import androidx.work.*
 import androidx.work.WorkerParameters
-import com.beehealthy.spothinta.SpotHintaWidget
+import com.beehealthy.spothinta.SparkWidget
 import java.time.Duration
 
-class HintaWorker(
+class SparkWorker(
     private val context: Context,
     workerParameters: WorkerParameters
 ) : CoroutineWorker(context, workerParameters) {
 
     companion object {
 
-        private val uniqueWorkName = HintaWorker::class.java.simpleName
+        private val uniqueWorkName = SparkWorker::class.java.simpleName
 
         /**
          * Enqueues a new worker to refresh weather data only if not enqueued already
@@ -46,7 +45,7 @@ class HintaWorker(
          */
         fun enqueue(context: Context, force: Boolean = false) {
             val manager = WorkManager.getInstance(context)
-            val requestBuilder = PeriodicWorkRequestBuilder<HintaWorker>(
+            val requestBuilder = PeriodicWorkRequestBuilder<SparkWorker>(
                 Duration.ofMinutes(30)
             )
             var workPolicy = ExistingPeriodicWorkPolicy.KEEP
@@ -73,12 +72,12 @@ class HintaWorker(
 
     override suspend fun doWork(): Result {
         val manager = GlanceAppWidgetManager(context)
-        val glanceIds = manager.getGlanceIds(SpotHintaWidget::class.java)
+        val glanceIds = manager.getGlanceIds(SparkWidget::class.java)
         return try {
             // Update state to indicate loading
 //            setWidgetState(glanceIds, WeatherInfo.Loading)
             // Update state with new data
-            setWidgetState(glanceIds, HintaRepo.getPrices())
+            setWidgetState(glanceIds, SparkRepo.getPrices())
 
             Result.success()
         } catch (e: Exception) {
@@ -105,6 +104,6 @@ class HintaWorker(
                 updateState = { newState }
             )
         }
-        SpotHintaWidget().updateAll(context)
+        SparkWidget().updateAll(context)
     }
 }

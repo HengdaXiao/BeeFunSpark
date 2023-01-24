@@ -1,7 +1,6 @@
 package com.beehealthy.spothinta
 
 import android.content.Context
-import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.sp
 import androidx.glance.GlanceModifier
@@ -13,11 +12,11 @@ import androidx.glance.currentState
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
-import com.beehealthy.spothinta.network.HintaWorker
+import com.beehealthy.spothinta.network.SparkWorker
 import com.beehealthy.spothinta.network.PriceInfo
 import com.beehealthy.spothinta.network.PriceInfoStateDefinition
 
-class SpotHintaWidget: GlanceAppWidget() {
+class SparkWidget: GlanceAppWidget() {
 
     override val stateDefinition = PriceInfoStateDefinition
 
@@ -43,16 +42,16 @@ class SpotHintaWidget: GlanceAppWidget() {
 }
 
 
-class SpotHintaWidgetReceiver: GlanceAppWidgetReceiver() {
-    override val glanceAppWidget: GlanceAppWidget = SpotHintaWidget()
+class SparkWidgetReceiver: GlanceAppWidgetReceiver() {
+    override val glanceAppWidget: GlanceAppWidget = SparkWidget()
 
     override fun onEnabled(context: Context) {
         super.onEnabled(context)
-        HintaWorker.enqueue(context)
+        SparkWorker.enqueue(context)
     }
 
     override fun onDisabled(context: Context) {
         super.onDisabled(context)
-        HintaWorker.cancel(context)
+        SparkWorker.cancel(context)
     }
 }
