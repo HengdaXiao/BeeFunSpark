@@ -1,5 +1,6 @@
 package com.beehealthy.spothinta
 
+import android.appwidget.AppWidgetManager
 import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.sp
@@ -76,7 +77,7 @@ class SparkWidget : GlanceAppWidget() {
                         )
                     }
                     else -> {
-                        Text(text = LocalContext.current.getString(R.string.widget_load_failed))
+                        Text(text =  LocalContext.current.getString(R.string.widget_load_failed))
                     }
                 }
             }
@@ -88,6 +89,14 @@ class SparkWidget : GlanceAppWidget() {
 class SparkWidgetReceiver : GlanceAppWidgetReceiver() {
     override val glanceAppWidget: GlanceAppWidget = SparkWidget()
 
+    override fun onUpdate(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetIds: IntArray
+    ) {
+        super.onUpdate(context, appWidgetManager, appWidgetIds)
+        SparkWorker.enqueue(context)
+    }
     override fun onEnabled(context: Context) {
         super.onEnabled(context)
         SparkWorker.enqueue(context)
