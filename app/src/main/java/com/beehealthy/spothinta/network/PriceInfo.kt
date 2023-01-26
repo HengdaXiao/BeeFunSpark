@@ -16,14 +16,13 @@
 
 package com.beehealthy.spothinta.network
 
-import Price
 import kotlinx.serialization.Serializable
 
 @Serializable
 sealed interface PriceInfo {
     @Serializable
     data class Available(
-        val highPriceText : String,
+        val highPriceText: String,
         val lowPriceText: String,
     ) : PriceInfo
 
