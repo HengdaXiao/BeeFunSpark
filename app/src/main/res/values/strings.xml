@@ -1,17 +1,6 @@
 <resources>
     <string name="app_name">Spark</string>
 
-    <!--  Widget Strings Starts   -->
-    <string name="widget_today">Today</string>
-    <string name="widget_lowest">Lowest</string>
-    <string name="widget_highest">Highest</string>
-    <string name="widget_unit">cents/kWh</string>
-
-    <string name="widget_loading">Loading...</string>
-    <string name="widget_load_failed">🥲 Fetch price failed 🥲</string>
-
-
-    <!--  Widget Strings Ends   -->
 
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
