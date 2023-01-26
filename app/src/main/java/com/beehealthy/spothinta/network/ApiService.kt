@@ -14,7 +14,9 @@ data class Price (
     val priceNoTax: Float,
     @SerializedName("PriceWithTax")
     val priceWithTax: Float
-)
+){
+    val price:Float = priceWithTax * 100
+}
 
 
 interface ApiService {

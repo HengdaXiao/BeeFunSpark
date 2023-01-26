@@ -23,7 +23,8 @@ import kotlinx.serialization.Serializable
 sealed interface PriceInfo {
     @Serializable
     data class Available(
-        val hourlyPrices: List<Price>,
+        val highPriceText : String,
+        val lowPriceText: String,
     ) : PriceInfo
 
     @Serializable

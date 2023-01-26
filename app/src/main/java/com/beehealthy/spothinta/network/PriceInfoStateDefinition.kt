@@ -65,7 +65,7 @@ object PriceInfoStateDefinition : GlanceStateDefinition<PriceInfo> {
                 input.readBytes().decodeToString()
             )
         } catch (exception: SerializationException) {
-            throw CorruptionException("Could not read weather data: ${exception.message}")
+            throw CorruptionException("Could not read electricity data: ${exception.message}")
         }
 
         override suspend fun writeTo(t: PriceInfo, output: OutputStream) {
